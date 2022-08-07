@@ -14,14 +14,6 @@ import java.util.Set;
 
 public class BookDao {
 
-
-    static Author author1 = new Author(1L, "Tohir Malik");
-    static Author author2 = new Author(2L, "Author2");
-    static Author author3 = new Author(3L, "Author3");
-
-    static Category category1 = new Category(1L, "cat1");
-    static Category category2 = new Category(2L, "cat2");
-
     public static List<Book> getAllBooks(int size, int page) {
         try {
             ArrayList<Book> bookList = new ArrayList<>();

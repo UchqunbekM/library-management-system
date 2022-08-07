@@ -12,6 +12,5 @@ public class User {
     private Long  id;
     private String username;
     private String password;
-    private String fullname;
-    private String role= Role.USER.name();
+    private String lastname;
 }

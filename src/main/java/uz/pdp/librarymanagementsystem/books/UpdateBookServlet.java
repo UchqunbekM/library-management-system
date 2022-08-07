@@ -29,7 +29,7 @@ public class UpdateBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String sid = req.getParameter("id");
-        int id = 0;
+        int id;
         if (sid != null) {
             id = Integer.parseInt(sid);
 
@@ -42,8 +42,6 @@ public class UpdateBookServlet extends HttpServlet {
             req.setAttribute("categoryList", categoryList);
             req.getRequestDispatcher("updatepagebook.jsp").forward(req, resp);
         }
-
-
         req.setAttribute("yol", "update");
         req.getRequestDispatcher("/books").forward(req, resp);
     }
@@ -51,7 +49,7 @@ public class UpdateBookServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Long id= Long.valueOf(req.getParameter("id"));
+        Long id = Long.valueOf(req.getParameter("id"));
         String title = req.getParameter("title");
         String description = req.getParameter("description");
         String[] authorsIdsStr = req.getParameterValues("authorsIds");
@@ -64,7 +62,6 @@ public class UpdateBookServlet extends HttpServlet {
         Integer quantity = Integer.valueOf(req.getParameter("quantity"));
         Part imagePart = req.getPart("image");
         boolean empty = imagePart.getSubmittedFileName().isEmpty();
-
 
         Book book = Book.builder()
                 .id(id)
@@ -79,10 +76,9 @@ public class UpdateBookServlet extends HttpServlet {
 
         if (!empty) {
             book.setImgUrl(uploadAndGetImageUrl(imagePart));
-        }else {
+        } else {
             book.setImgUrl(url);
         }
-
 
         Boolean update = BookDao.updateBook(book);
 
@@ -90,6 +86,7 @@ public class UpdateBookServlet extends HttpServlet {
             resp.sendRedirect("/books?update=true");
         }
     }
+
     private Set<Long> getAuthorIdsFromStrArr(String[] authorsIdsStr) {
         Set<Long> authorIds = new HashSet<>();
         for (String authorId : authorsIdsStr) {
@@ -114,7 +111,7 @@ public class UpdateBookServlet extends HttpServlet {
             long longtime = System.currentTimeMillis();
 
 
-            String imgPath = "D:\\library-management-system\\src\\main\\webapp\\images"+ "\\" + longtime + "." + extension;
+            String imgPath = "D:\\library-management-system\\src\\main\\webapp\\images" + "\\" + longtime + "." + extension;
             imagePart.write(imgPath);
             uploadDirPath = uploadDirPath.substring(1);
             uploadDirPath += "\\" + longtime + "." + extension;

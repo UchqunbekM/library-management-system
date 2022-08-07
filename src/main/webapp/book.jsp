@@ -19,6 +19,7 @@
 <body>
 
 <%@include file="includes/navbar.jsp" %>
+<%@include file="sup_panel.html"%>
 
 <!--SAYTNI MENYUDAN PASTKI QISMI KONTENTLAR-->
 <section class="container mt-4 ">
@@ -28,7 +29,7 @@
         <h1>${message}</h1>
     </c:if>
 
-    <a href="/add-book">+ add new book</a>
+    <a href="/add-book"> Add new book</a>
     <hr>
     <a href="/delete"> Delete </a>
     <hr>

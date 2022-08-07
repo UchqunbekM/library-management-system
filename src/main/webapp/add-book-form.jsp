@@ -25,7 +25,7 @@
     <div class="col-md-6 offset-3">
 
 
-        <form action="/add-book" method="post" enctype="multipart/form-data">
+        <form action="add-book" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="title">Title:</label>

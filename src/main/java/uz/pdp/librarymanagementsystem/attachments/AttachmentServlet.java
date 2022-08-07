@@ -21,7 +21,6 @@ public class AttachmentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        System.out.println("jello");
         String pathInfo = req.getPathInfo();
         String[] pathParts = pathInfo.split("/");
         String fileName = pathParts[1];

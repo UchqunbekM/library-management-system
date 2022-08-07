@@ -18,7 +18,7 @@ public class DeleteBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String sid = req.getParameter("id");
-        int id=0;
+        int id;
         if (sid!=null) {
          id = Integer.parseInt(sid);
 
