@@ -11,7 +11,6 @@ import java.util.List;
 
 public class AdminDao {
 
-
     public static int save_admin(Admin e){
         int status=0;
         try{

@@ -84,15 +84,14 @@ public class BookDao {
         }
 
     }
-
     public static boolean addNewBook(Book book) {
 
         try {
 
             Connection connection = DbConnection.getConnection();
 
-            String insertBook = "insert into books (title, description, categoryId, \"imgUrl\") VALUES " +
-                    "(?, ?, ?, ?)";
+            String insertBook = "insert into books (title, description, categoryId, \"imgUrl\",year,quantity,isbn) VALUES " +
+                    "(?, ?, ?, ?,?,?,?)";
             // TODO: 03/08/22 add isbn, year
 
             PreparedStatement preparedStatement = connection.prepareStatement(insertBook);
@@ -101,6 +100,9 @@ public class BookDao {
             preparedStatement.setString(2, book.getDescription());
             preparedStatement.setLong(3, book.getCategoryId());
             preparedStatement.setString(4, book.getImgUrl());
+            preparedStatement.setInt(5, book.getYear());
+            preparedStatement.setInt(6, book.getQuantity());
+            preparedStatement.setString(7, book.getIsbn());
 
 
             String insertBooksAuthors = "insert into books_authors VALUES ((select currval('book_id_seq')), ?)";
@@ -219,7 +221,6 @@ public class BookDao {
             throw new RuntimeException(e);
         }
     }
-
     public static Boolean updateBook(Book book) {
 
         try {
@@ -271,7 +272,6 @@ public class BookDao {
             throw new RuntimeException(e);
         }
     }
-
     public static List<Book> getAllBookList() {
         Connection connection = DbConnection.getConnection();
         List<Book> bookList=new ArrayList<>();

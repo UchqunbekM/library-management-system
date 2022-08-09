@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         List<User> userList = UserDAo.getAllUsers();
         for (Admin admin : list) {
             if (admin.getName().equals(name) && admin.getPassword().equals(password)) {
-                resp.sendRedirect("Admin_panel.html");
+                resp.sendRedirect("/admin");
                 return;
             }
         }

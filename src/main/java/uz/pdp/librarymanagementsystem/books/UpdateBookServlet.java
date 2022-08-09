@@ -42,7 +42,7 @@ public class UpdateBookServlet extends HttpServlet {
             req.setAttribute("categoryList", categoryList);
             req.getRequestDispatcher("updatepagebook.jsp").forward(req, resp);
         }
-        req.setAttribute("yol", "update");
+        req.setAttribute("to", "update");
         req.getRequestDispatcher("/books").forward(req, resp);
     }
 

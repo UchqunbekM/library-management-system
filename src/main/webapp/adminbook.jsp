@@ -5,14 +5,12 @@
 <html lang="en">
 <head>
     <title>BOOK PAGE</title>
-    <!--    <link rel="stylesheet" href="styles.css">-->
-
     <link rel="stylesheet" href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 
 <body>
 
-<%@include file="includes/navbar.jsp" %>
+<%@include file="Admin_panel.html"%>
 
 <!--SAYTNI MENYUDAN PASTKI QISMI KONTENTLAR-->
 <section class="container mt-4 ">
@@ -22,9 +20,7 @@
         <h1>${message}</h1>
     </c:if>
 
-    <a href="/add-book">add new book</a>
-    <a href="/delete">delete book</a>
-    <a href="/update">update book</a>
+    <%--    <a href="/add-book">+ add new book</a>--%>
 
     <div class="row justify-content-around">
 
@@ -36,7 +32,6 @@
                     <c:forEach items="${book.getAuthors()}" var="author">
                         <a href="/authors?id=${author.getId()}">
                             <h6 class="card-title">${author.getFullName()}</h6>
-                          <a href="delete?id=${book.getId()}"><b>Delete</b></a>
                         </a>
                     </c:forEach>
                     <p class="card-text">${book.getCategory().getName()}</p>
