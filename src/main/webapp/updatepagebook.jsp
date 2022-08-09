@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> UPdate BOOK</title>
-
-
+    <title> Update BOOK</title>
     <link rel="stylesheet" href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
@@ -15,82 +13,75 @@
     <script src="webjars/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
-
 </head>
 <body>
-<h1>Update  BOOK</h1>
+<h1>Update BOOK</h1>
 <br/>
 
 <div class="row">
     <div class="col-md-6 offset-3">
 
+        <form action="/update" method="post" enctype="multipart/form-data">
 
-<form action="/update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
 
-    <div class="form-group">
+                <input value="${book.getId()}" type="hidden" name="id">
 
-    <input  value="${book.getId()}" type="hidden" name="id">
+                <label for="title">Title:</label>
 
+                <input id="title" value="${book.getTitle()}" type="text" name="title">
+            </div>
 
-    <label for="title">Title:</label>
+            <div class="form-group">
+                <label for="description">Description:</label>
 
-    <input id="title"  value="${book.getTitle()}" type="text" name="title">
-    </div>
+                <textarea id="description" name="description">${book.getDescription()}</textarea></div>
 
-    <div class="form-group">
-    <label for="description">Description:</label>
+            <div class="form-group">
+                <label for="authorsIds">Title:</label>
+                <select id="authorsIds" multiple name="authorsIds">
+                    <option value="0">Select authors:</option>
+                    <c:forEach items="${authors}" var="author">
+                        <option value="${author.getId()}">${author.getFullName()}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categoryId">Select category:</label>
 
-        <textarea  id="description"  name="description">${book.getDescription()}</textarea></div>
+                <select id="categoryId" name="categoryId " required>
+                    <option disabled value="0">Select category:</option>
+                    <c:forEach items="${categoryList}" var="category">
+                        <option value="${category.getId()}">${category.getName()}</option>
+                    </c:forEach>
+                </select>
+            </div>
 
-    <label for="authorsIds">Title:</label>
-    <select id="authorsIds" multiple name="authorsIds">
-        <option value="0">Select authors:</option>
-        <c:forEach items="${authors}" var="author">
-            <option value="${author.getId()}">${author.getFullName()}</option>
-        </c:forEach>
-    </select>
+            <div class="form-group">
+                <label for="isbn">Isbn:</label>
+                <input id="isbn" value="${book.getIsbn()}" type="text" name="isbn">
+            </div>
 
-    <br>
-    <label for="categoryId">Select category:</label>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input id="year" value="${book.getYear()}" type="number" name="year">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input id="quantity" value="${book.getQuantity()}" type="number" name="quantity">
+            </div>
+            <div class="form-group">
+                <label for="image">Upload cover image:</label>
+                <input id="image" value="null" type="file" name="image">
+            </div>
+            <div class="form-group">
+                <input value="${book.getImgUrl()}" type="text" name="url">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Saqlash">
+            </div>
 
-    <select id="categoryId" name="categoryId "  required>
-        <option disabled value="0">Select category:</option>
-        <c:forEach items="${categoryList}" var="category">
-            <option value="${category.getId()}">${category.getName()}</option>
-        </c:forEach>
-    </select>
-
-    <br>
-    <label for="isbn">Isbn:</label>
-
-    <input id="isbn" value="${book.getIsbn()}" type="text" name="isbn">
-
-    <br>
-    <label for="year">Year:</label>
-
-    <input id="year" value="${book.getYear()}" type="number" name="year">
-
-    <br>
-
-    <label for="quantity">Quantity:</label>
-
-    <input id="quantity" value="${book.getQuantity()}" type="number" name="quantity">
-
-    <br>
-
-
-    <label for="image">Upload cover image:</label>
-
-    <input  id="image"  value="null" type="file" name="image">
-
-    <input  value="${book.getImgUrl()}"  type="text"  name="url">
-
-    <br>
-
-    <input type="submit" value="Saqlash">
-
-
-</form>
+        </form>
     </div>
 </div>
 </body>

@@ -35,10 +35,10 @@
             <thead>
             <tr>
                 <th>User's Name</th>
-                <th>Password</th>
                 <th>Lastname</th>
+                <th>Password</th>
                 <th>Delete</th>
-
+                <th>Delete</th>
 
             </tr>
             </thead>
@@ -46,10 +46,14 @@
                 <c:forEach var="userlist" items="${list}">
             <tr>
                 <td><strong></strong>${userlist.username}</td>
-                <td>${userlist.password}</td>
                 <td>${userlist.lastname}</td>
+                <td>${userlist.password}</td>
+
                 <td class="danger">
                     <button class="danger"><a href="deleteuser?id=${userlist.id}"> Delete</a></button>
+                </td>
+                <td class="danger">
+                    <button class="danger"><a href="updateeuser?id=${userlist.id}"> Update</a></button>
                 </td>
             </tr>
             </c:forEach>

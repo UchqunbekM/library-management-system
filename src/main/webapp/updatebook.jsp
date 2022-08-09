@@ -20,7 +20,6 @@
 
 <%@include file="Admin_panel.html" %>
 
-<!--SAYTNI MENYUDAN PASTKI QISMI KONTENTLAR-->
 <section class="container mt-4 ">
 
 
@@ -49,15 +48,6 @@
         </c:forEach>
 
     </div>
-
-
 </section>
-
-<!--SAYTNI PASTKI QISMI | SAYT HAQIDA YOKI KOMPANIYA HAQIDA MA'LUMOTLAR -->
-<footer>
-
-</footer>
-
-
 </body>
 </html>

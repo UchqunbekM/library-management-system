@@ -30,8 +30,7 @@
     </div>
     <div class="table-concept">
         <input class="table-radio" type="radio" name="table_radio" id="table_radio_0" checked="checked"/>
-        <div class="table-display">Showing 1 to 20
-            of 95 books
+        <div class="table-display">
         </div>
         <table>
             <thead>

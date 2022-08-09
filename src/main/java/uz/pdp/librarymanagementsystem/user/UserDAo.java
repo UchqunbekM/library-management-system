@@ -46,6 +46,31 @@ public class UserDAo {
 
         return userList;
     }
+    public static List<User> getAllByIDUsers(int id) {
+        List<User> userList = new ArrayList<>();
+        try ( Connection connection = DbConnection.getConnection()){
+            PreparedStatement ps  = connection.prepareStatement("select * from users where id=?");
+
+            ps.setLong(1,id);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                Long idd = Long.valueOf(resultSet.getString("id"));
+                String username = resultSet.getString("username");
+                String pasword= resultSet.getString("password");
+                String pasword1= resultSet.getString("lastname");
+
+                user.setId(idd);
+                user.setUsername(username);
+                user.setPassword(pasword);
+                user.setLastname(pasword1);
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
+    }
     public static int save_user(User e){
         int status=0;
         try{
@@ -75,6 +100,24 @@ public class UserDAo {
         }
 
         return status;
+    }
+    public static boolean update(int id, String username, String passwvord, String lastname) {
+        int status = 0;
+        try {
+            Connection con = DbConnection.getConnection();
+            PreparedStatement ps = con.prepareStatement(
+                    "update users set username=?, password=?, lastname=? where id=?");
+            ps.setString(1, username);
+            ps.setString(2, passwvord);
+            ps.setString(3, lastname);
+            ps.setInt(4,id);
+            status = ps.executeUpdate();
+
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+return status>0;
     }
 
 }

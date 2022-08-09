@@ -12,7 +12,7 @@
 
 <body>
 
-<%@include file="includes/navbar.jsp" %>
+<%@include file="Admin_panel.html" %>
 
 <!--SAYTNI MENYUDAN PASTKI QISMI KONTENTLAR-->
 <section class="container mt-4 ">
@@ -21,10 +21,6 @@
     <c:if test="${message != null}">
         <h1>${message}</h1>
     </c:if>
-
-    <a href="/add-book">add new book</a>
-    <a href="/delete">delete book</a>
-    <a href="/update">update book</a>
 
     <div class="row justify-content-around">
 

@@ -15,7 +15,7 @@
     <h2>Issue-return Book </h2>
 
   </div>
-  <div class="button-container"><span><a href="Admin_panel.html" >List</a></span>
+  <div class="button-container"><span><a href="Admin_panel.html" >Back to panel</a></span>
     <button class="danger" title="Delete Selected">
       <svg viewBox="0 0 448 512" width="16" title="trash-alt">
         <path d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path>
@@ -39,7 +39,7 @@
         <th>Date</th>
         <th>Status</th>
         <th>Delete</th>
-        <th>Edit</th>
+        <th>Update</th>
 
       </tr>
       </thead>
@@ -51,7 +51,7 @@
           <td>${list.date}</td>
           <td>${list.issued}</td>
          <td> <a href="delissu?id=${list.getId()}"><b>Delete</b></a></td>
-          <td> <a href="upissu?id=${list.getId()}"><b>Delete</b></a></td>
+          <td> <a href="upissu?id=${list.getId()}"><b>Update</b></a></td>
           <td>${list.issued}</td>
         </tr>
       </c:forEach>
